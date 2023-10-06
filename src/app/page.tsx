@@ -1,9 +1,9 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 import { buttonVariants } from '@/components/ui/button';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
-import Image from 'next/image';
 
 export default function Home() {
   return (
