@@ -7,8 +7,8 @@ import { Ghost, Loader2, MessageSquare, Plus, Trash } from 'lucide-react';
 
 import { trpc } from '@/app/_trpc/client';
 import { Button } from '@/components/ui/button';
-import { Skeleton } from '@/components/ui/skeleton';
 import UploadButton from '@/components/UploadButton';
+import FileCardSkeleton from '@/components/FileCardSkeleton';
 
 const Dashboard = () => {
   const [currentlyDeletingFile, setCurrentlyDeletingFile] = useState<
@@ -92,7 +92,13 @@ const Dashboard = () => {
         </ul>
       )}
 
-      {isLoading && <Skeleton className='w-full h-10 bg-white' />}
+      {isLoading && (
+        <ul className='mt-8 grid grid-cols-1 gap-6 divide-y divide-zinc-200 md:grid-cols-2 lg:grid-cols-3'>
+          {[...Array(9)].map((_, index) => (
+            <FileCardSkeleton key={index} />
+          ))}
+        </ul>
+      )}
 
       {files && files?.length < 1 && !isLoading && (
         <div className='mt-16 flex flex-col items-center gap-2'>
