@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
+import UploadDropzone from '@/components/UploadDropzone';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
 const UploadButton = () => {
@@ -21,7 +22,9 @@ const UploadButton = () => {
         <Button>Upload PDF</Button>
       </DialogTrigger>
 
-      <DialogContent></DialogContent>
+      <DialogContent>
+        <UploadDropzone />
+      </DialogContent>
     </Dialog>
   );
 };
