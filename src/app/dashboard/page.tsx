@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
 
 import { db } from '@/db';
+import Dashboard from '@/components/Dashboard';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 
 const DashboardPage = async () => {
@@ -21,7 +22,7 @@ const DashboardPage = async () => {
     redirect('/auth-callback?origin=dashboard');
   }
 
-  return <div>{user.email}</div>;
+  return <Dashboard />;
 };
 
 export default DashboardPage;
