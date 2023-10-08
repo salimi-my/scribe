@@ -8,7 +8,7 @@ import { Document, Page, pdfjs } from 'react-pdf';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useResizeDetector } from 'react-resize-detector';
 import {
-  Search,
+  ZoomIn,
   Loader2,
   RotateCw,
   ChevronUp,
@@ -123,7 +123,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button className='gap-1.5' aria-label='zoom' variant='ghost'>
-                <Search className='h-4 w-4' />
+                <ZoomIn className='h-4 w-4' />
                 {scale * 100}%
                 <ChevronDown className='h-3 w-3 opacity-50' />
               </Button>
