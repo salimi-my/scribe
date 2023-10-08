@@ -7,7 +7,13 @@ import { useForm } from 'react-hook-form';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useResizeDetector } from 'react-resize-detector';
-import { ChevronDown, ChevronUp, Loader2, Search } from 'lucide-react';
+import {
+  Search,
+  Loader2,
+  RotateCw,
+  ChevronUp,
+  ChevronDown
+} from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { Input } from '@/components/ui/input';
@@ -15,13 +21,13 @@ import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import {
   DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuContent
 } from '@/components/ui/dropdown-menu';
 
 import 'react-pdf/dist/Page/TextLayer.css';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
-import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -35,6 +41,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
   const [numPages, setNumPages] = useState<number>();
   const [currPage, setCurrPage] = useState<number>(1);
   const [scale, setScale] = useState<number>(1);
+  const [rotation, setRotation] = useState<number>(0);
 
   const CustomPageValidator = z.object({
     page: z
@@ -135,6 +142,14 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+
+          <Button
+            onClick={() => setRotation((prev) => prev + 90)}
+            variant='ghost'
+            aria-label='rotate 90 degrees'
+          >
+            <RotateCw className='h-4 w-4' />
+          </Button>
         </div>
       </div>
 
@@ -162,6 +177,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
                 width={width ? width : 1}
                 pageNumber={currPage}
                 scale={scale}
+                rotate={rotation}
               />
             </Document>
           </div>
