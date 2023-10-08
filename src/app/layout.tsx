@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import Navbar from '@/components/Navbar';
 import Providers from '@/components/Providers';
+import { Toaster } from '@/components/ui/toaster';
 
 import './globals.css';
 
@@ -28,6 +29,7 @@ export default function RootLayout({
             inter.className
           )}
         >
+          <Toaster />
           <Navbar />
           {children}
         </body>
