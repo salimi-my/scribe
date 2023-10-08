@@ -48,6 +48,14 @@ const UploadDropzone = () => {
     <Dropzone
       multiple={false}
       onDrop={async (acceptedFile) => {
+        if (acceptedFile[0].type !== 'application/pdf') {
+          return toast({
+            title: 'File type error',
+            description: 'Please upload only document in pdf format',
+            variant: 'destructive'
+          });
+        }
+
         setIsUploading(true);
 
         const progressInterval = startSimulatedProgress();
