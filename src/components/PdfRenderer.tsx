@@ -19,6 +19,7 @@ import { cn } from '@/lib/utils';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
+import PdfFullScreen from '@/components/PdfFullScreen';
 import {
   DropdownMenu,
   DropdownMenuItem,
@@ -150,6 +151,8 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
           >
             <RotateCw className='h-4 w-4' />
           </Button>
+
+          <PdfFullScreen fileUrl={url} />
         </div>
       </div>
 
