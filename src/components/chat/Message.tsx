@@ -71,7 +71,7 @@ const Message = forwardRef<HTMLDivElement, MessageProps>(
                   'text-white/50': message.isUserMessage
                 })}
               >
-                {format(new Date(message.createdAt), 'HH:mm')}
+                {format(new Date(message.createdAt), 'dd MMM yy hh:mm aaa')}
               </div>
             )}
           </div>
