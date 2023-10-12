@@ -31,10 +31,10 @@ const Message = forwardRef<HTMLDivElement, MessageProps>(
           )}
         >
           {message.isUserMessage && (
-            <Icons.user className='fill-zinc-200 text-zinc-200 h-3/4 w-3/4' />
+            <Icons.user className='text-zinc-200 h-4 w-4' />
           )}
           {!message.isUserMessage && (
-            <Icons.logo className='fill-zinc-300 h-3/4 w-3/4' />
+            <Icons.logo className='text-zinc-200 h-4 w-4' />
           )}
         </div>
 
