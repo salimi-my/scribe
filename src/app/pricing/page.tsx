@@ -136,13 +136,14 @@ const PricingPage = () => {
                     {features.map(({ text, footnote, negative }) => (
                       <li key={text} className='flex space-x-5'>
                         <div className='flex-shrink-0'>
-                          {negative ? (
+                          {negative && (
                             <Minus className='h-6 w-6 text-gray-300' />
-                          ) : (
+                          )}
+                          {!negative && (
                             <Check className='h-6 w-6 text-primary' />
                           )}
                         </div>
-                        {footnote ? (
+                        {footnote && (
                           <div className='flex items-center space-x-1'>
                             <p
                               className={cn('text-gray-600', {
@@ -160,7 +161,8 @@ const PricingPage = () => {
                               </TooltipContent>
                             </Tooltip>
                           </div>
-                        ) : (
+                        )}
+                        {!footnote && (
                           <p
                             className={cn('text-gray-600', {
                               'text-gray-400': negative
@@ -174,7 +176,7 @@ const PricingPage = () => {
                   </ul>
                   <div className='border-t border-gray-200' />
                   <div className='p-5'>
-                    {plan === 'Free' ? (
+                    {plan === 'Free' && (
                       <Link
                         href={user ? '/dashboard' : '/sign-in'}
                         className={buttonVariants({
@@ -185,9 +187,9 @@ const PricingPage = () => {
                         {user ? 'Upgrade now' : 'Sign up'}
                         <ArrowRight className='h-5 w-5 ml-1.5' />
                       </Link>
-                    ) : user ? (
-                      <UpgradeButton />
-                    ) : (
+                    )}
+                    {plan !== 'Free' && user && <UpgradeButton />}
+                    {plan !== 'Free' && !user && (
                       <Link
                         href='/sign-in'
                         className={buttonVariants({
