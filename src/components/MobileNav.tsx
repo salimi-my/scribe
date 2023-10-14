@@ -35,21 +35,21 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
 
       {isOpen && (
         <div className='fixed animate-in slide-in-from-top-5 fade-in-20 inset-0 z-0 w-full'>
-          <ul className='absolute bg-white border-b border-zinc-200 shadow-xl grid w-full gap-3 px-10 pt-20 pb-8'>
+          <ul className='absolute bg-white border-b border-zinc-200 shadow-xl grid w-full gap-1 px-10 pt-20 pb-8'>
             {!isAuth ? (
               <>
-                <li>
+                <li className='py-1 px-2 rounded-md hover:bg-gray-100'>
                   <Link
                     onClick={() => closeOnCurrent('/sign-up')}
-                    className='flex items-center w-full font-semibold text-green-600'
+                    className='flex items-center w-full font-semibold text-primary'
                     href='/sign-up'
                   >
                     Get started
-                    <ArrowRight className='ml-2 h-5 w-5' />
+                    <ArrowRight className='ml-2 h-4 w-4' />
                   </Link>
                 </li>
-                <li className='my-3 h-px w-full bg-gray-300' />
-                <li>
+                <li className='my-1 h-px w-full bg-gray-300' />
+                <li className='py-1 px-2 rounded-md hover:bg-gray-100'>
                   <Link
                     onClick={() => closeOnCurrent('/sign-in')}
                     className='flex items-center w-full font-semibold'
@@ -58,8 +58,8 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
                     Sign in
                   </Link>
                 </li>
-                <li className='my-3 h-px w-full bg-gray-300' />
-                <li>
+                <li className='my-1 h-px w-full bg-gray-300' />
+                <li className='py-1 px-2 rounded-md hover:bg-gray-100'>
                   <Link
                     onClick={() => closeOnCurrent('/pricing')}
                     className='flex items-center w-full font-semibold'
@@ -71,7 +71,7 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
               </>
             ) : (
               <>
-                <li>
+                <li className='py-1 px-2 rounded-md hover:bg-gray-100'>
                   <Link
                     onClick={() => closeOnCurrent('/dashboard')}
                     className='flex items-center w-full font-semibold'
@@ -80,8 +80,8 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
                     Dashboard
                   </Link>
                 </li>
-                <li className='my-3 h-px w-full bg-gray-300' />
-                <li>
+                <li className='my-1 h-px w-full bg-gray-300' />
+                <li className='py-1 px-2 rounded-md hover:bg-gray-100'>
                   <Link
                     className='flex items-center w-full font-semibold'
                     href='/sign-out'

@@ -10,6 +10,7 @@ import MobileNav from '@/components/MobileNav';
 import { buttonVariants } from '@/components/ui/button';
 import UserAccountNav from '@/components/UserAccountNav';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
+import Image from 'next/image';
 
 const Navbar = () => {
   const { getUser } = getKindeServerSession();
@@ -19,8 +20,15 @@ const Navbar = () => {
     <nav className='sticky h-14 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all'>
       <MaxWidthWrapper>
         <div className='flex h-14 items-center justify-between border-b border-zinc-200'>
-          <Link href='/' className='flex z-40 font-semibold'>
-            <span>scribe.</span>
+          <Link href='/' className='flex items-center z-40 font-semibold'>
+            <Image
+              src='/scribe-logo.png'
+              alt='scribe logo'
+              width={32}
+              height={32}
+              className='mr-3'
+            />
+            <span>Scribe</span>
           </Link>
 
           <MobileNav isAuth={!!user} />
