@@ -3,7 +3,7 @@ import { ReactNode, createContext, useRef, useState } from 'react';
 
 import { trpc } from '@/app/_trpc/client';
 import { useToast } from '@/components/ui/use-toast';
-import { IINFINITE_QUERY_LIMIT } from '@/config/infinite-query';
+import { INFINITE_QUERY_LIMIT } from '@/config/infinite-query';
 
 type StreamResponse = {
   addMessage: () => void;
@@ -65,7 +65,7 @@ export const ChatContextProvider = ({
 
       // Step 3
       utils.getFileMessages.setInfiniteData(
-        { fileId, limit: IINFINITE_QUERY_LIMIT },
+        { fileId, limit: INFINITE_QUERY_LIMIT },
         (old) => {
           if (!old) {
             return {
@@ -131,7 +131,7 @@ export const ChatContextProvider = ({
 
         // Append chunk to the actual message
         utils.getFileMessages.setInfiniteData(
-          { fileId, limit: IINFINITE_QUERY_LIMIT },
+          { fileId, limit: INFINITE_QUERY_LIMIT },
           (old) => {
             if (!old) {
               return { pages: [], pageParams: [] };

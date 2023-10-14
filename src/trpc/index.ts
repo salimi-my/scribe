@@ -5,7 +5,7 @@ import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 import { db } from '@/db';
 import { absoluteUrl } from '@/lib/utils';
 import { getUserSubscriptionPlan, stripe } from '@/lib/stripe';
-import { IINFINITE_QUERY_LIMIT } from '@/config/infinite-query';
+import { INFINITE_QUERY_LIMIT } from '@/config/infinite-query';
 import { privateProcedure, publicProcedure, router } from '@/trpc/trpc';
 import { PLANS } from '@/config/stripe';
 
@@ -61,7 +61,7 @@ export const appRouter = router({
     .query(async ({ ctx, input }) => {
       const { userId } = ctx;
       const { fileId, cursor } = input;
-      const limit = input.limit ?? IINFINITE_QUERY_LIMIT;
+      const limit = input.limit ?? INFINITE_QUERY_LIMIT;
 
       const file = await db.file.findFirst({
         where: {
