@@ -6,6 +6,7 @@ import {
   getKindeServerSession
 } from '@kinde-oss/kinde-auth-nextjs/server';
 
+import MobileNav from '@/components/MobileNav';
 import { buttonVariants } from '@/components/ui/button';
 import UserAccountNav from '@/components/UserAccountNav';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
@@ -21,6 +22,8 @@ const Navbar = () => {
           <Link href='/' className='flex z-40 font-semibold'>
             <span>scribe.</span>
           </Link>
+
+          <MobileNav isAuth={!!user} />
 
           <div className='hidden items-center space-x-4 sm:flex'>
             {user && (
