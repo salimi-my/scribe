@@ -15,7 +15,7 @@ export function absoluteUrl(path: string) {
 export function constructMetadata({
   title = 'Scribe — Chat with Your Documents',
   description = 'Enhance your document experience with Scribe: Upload PDFs and chat with them through AI for seamless productivity. Unlock the power of interactive PDFs today!',
-  image = '/thumbnail.png',
+  image = '/social-preview.png',
   icons = '/favicon.ico',
   noIndex = false
 }: {
