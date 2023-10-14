@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [Scribe](https://scribe.salimi.my) &middot; [![Author Salimi](https://img.shields.io/badge/Author-Salimi-%3C%3E)](https://www.linkedin.com/in/mohamad-salimi/)
 
-## Getting Started
+Scribe offers you the remarkable ability to engage in insightful conversations with any PDF document of your choice. With the simple act of uploading your file, you can seamlessly embark on a journey of exploration, posing your inquiries and gaining valuable insights in real-time with AI.
 
-First, run the development server:
+## Chat with your documents
+
+- Drag & drop file upload
+- Chat with PDF using AI
+- Authentication using Kinde
+- Subscription using Stripe
+- MongoDB & Prisma for database
+- Hosted in Vercel
+
+## Tech/framework used
+
+- Next.js 13 App Dir
+- Shadcn/ui
+- Kinde
+- Tailwind CSS
+- UploadThing
+- TypeScript
+- MongoDB
+- Prisma
+- Stripe
+- Vercel
+
+## Starting the project
+
+Open the [.env.example](/.env.example) and fill in your Database URL, Kinde Auth, UploadThing, Pinecone, OpenAI & Stripe configurations then save it as .env then run the following command:
 
 ```bash
+npm install
+npx prisma db push
+npx prisma generate
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Demo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The app is hosted on Vercel. [Click here](https://scribe.salimi.my) to visit.
+<br>
+Direct link: `https://scribe.salimi.my`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Screenshots
 
-## Learn More
+#### Landing Page
 
-To learn more about Next.js, take a look at the following resources:
+![Landing Page](/screenshots/screenshot-1.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Sign in
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![Sign in](/screenshots/screenshot-2.png)
 
-## Deploy on Vercel
+#### Dashboard
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Dashboard](/screenshots/screenshot-3.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### Chat with PDF
+
+![Chat with PDF](/screenshots/screenshot-4.png)
+
+#### Upload File
+
+![Upload File](/screenshots/screenshot-5.png)
+
+#### Payment Page
+
+![Payment Page](/screenshots/screenshot-6.png)
+
+#### Manage Subscription
+
+![Manage Subscription](/screenshots/screenshot-7.png)

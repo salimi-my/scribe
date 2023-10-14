@@ -19,8 +19,8 @@ const HomePage = () => {
           seconds.
         </h1>
         <p className='mt-5 max-w-prose text-zinc-700 sm:text-lg'>
-          Scribe allows you to have conversations with any PDF document. Simply
-          upload your file and start asking questions right away.
+          Scribe empowers you to converse with any PDF document instantly. Just
+          upload your file and start questioning.
         </p>
 
         <Link
