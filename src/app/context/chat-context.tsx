@@ -53,14 +53,6 @@ export const ChatContextProvider = ({
 
       return response.body;
     },
-    onError: (_, __, context: any) => {
-      setMessage(backupMessage.current);
-
-      utils.getFileMessages.setData(
-        { fileId },
-        { messages: context?.previousMessages ?? [] }
-      );
-    },
     onMutate: async ({ message }) => {
       backupMessage.current = message;
       setMessage('');
@@ -111,11 +103,6 @@ export const ChatContextProvider = ({
         previousMessages:
           previousMessages?.pages.flatMap((page) => page.messages) ?? []
       };
-    },
-    onSettled: async () => {
-      setIsLoading(false);
-
-      await utils.getFileMessages.invalidate({ fileId });
     },
     onSuccess: async (stream) => {
       setIsLoading(false);
@@ -193,6 +180,19 @@ export const ChatContextProvider = ({
           }
         );
       }
+    },
+    onError: (_, __, context) => {
+      setMessage(backupMessage.current);
+
+      utils.getFileMessages.setData(
+        { fileId },
+        { messages: context?.previousMessages ?? [] }
+      );
+    },
+    onSettled: () => {
+      setIsLoading(false);
+
+      utils.getFileMessages.invalidate({ fileId });
     }
   });
 
