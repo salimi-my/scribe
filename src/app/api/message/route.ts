@@ -6,8 +6,7 @@ import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 
 import { db } from '@/db';
 import { openai } from '@/lib/openai';
-// import { pinecone } from '@/lib/pinecone';
-import { getPineconeClient } from '@/lib/pinecone';
+import { pinecone } from '@/lib/pinecone';
 import { SendMessageValidator } from '@/lib/validators/SendMessageValidator';
 
 export const POST = async (req: NextRequest) => {
@@ -45,7 +44,6 @@ export const POST = async (req: NextRequest) => {
   });
 
   // Vectorize message
-  const pinecone = await getPineconeClient();
   const pineconeIndex = pinecone.Index('scribe');
 
   const embeddings = new OpenAIEmbeddings({
