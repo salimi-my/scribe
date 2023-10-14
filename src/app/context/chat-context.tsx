@@ -192,7 +192,7 @@ export const ChatContextProvider = ({
     onSettled: async () => {
       setIsLoading(false);
 
-      // await utils.getFileMessages.invalidate({ fileId });
+      await utils.getFileMessages.invalidate({ fileId });
     }
   });
 
