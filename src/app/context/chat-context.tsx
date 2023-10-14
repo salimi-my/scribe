@@ -189,10 +189,10 @@ export const ChatContextProvider = ({
         { messages: context?.previousMessages ?? [] }
       );
     },
-    onSettled: () => {
+    onSettled: async () => {
       setIsLoading(false);
 
-      utils.getFileMessages.invalidate({ fileId });
+      // await utils.getFileMessages.invalidate({ fileId });
     }
   });
 
