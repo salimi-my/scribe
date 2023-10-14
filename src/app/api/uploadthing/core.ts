@@ -6,7 +6,8 @@ import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 
 import { db } from '@/db';
 import { PLANS } from '@/config/stripe';
-import { pinecone } from '@/lib/pinecone';
+// import { pinecone } from '@/lib/pinecone';
+import { getPineconeClient } from '@/lib/pinecone';
 import { getUserSubscriptionPlan } from '@/lib/stripe';
 
 const f = createUploadthing();
@@ -84,6 +85,7 @@ const onUploadComplete = async ({
     }
 
     // Vectorize and index entire document
+    const pinecone = await getPineconeClient();
     const pineconeIndex = pinecone.Index('scribe');
 
     const embeddings = new OpenAIEmbeddings({
