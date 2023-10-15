@@ -87,14 +87,20 @@ const Messages = ({ fileId }: MessagesProps) => {
           }
         })}
 
-      {!(combinedMessages && combinedMessages.length > 0) && isLoading && (
-        <div className='w-full flex flex-col gap-2'>
-          <Skeleton className='h-16' />
-          <Skeleton className='h-16' />
-          <Skeleton className='h-16' />
-          <Skeleton className='h-16' />
-        </div>
-      )}
+      {!(combinedMessages && combinedMessages.length > 0) &&
+        isLoading &&
+        [...Array(8)].map((_, index) => (
+          <div key={index}>
+            <div className='flex items-end justify-end mb-4'>
+              <Skeleton className='relative flex h-6 w-6 aspect-square items-center justify-center order-2 rounded-sm' />
+              <Skeleton className='flex flex-col space-y-2 min-w-[300px] mx-2 order-1 items-end h-24 rounded-br-none' />
+            </div>
+            <div className='flex items-end'>
+              <Skeleton className='relative flex h-6 w-6 aspect-square items-center justify-center order-1 rounded-sm' />
+              <Skeleton className='flex flex-col space-y-2 min-w-[300px] mx-2 order-1 items-end h-24 rounded-bl-none' />
+            </div>
+          </div>
+        ))}
 
       {!(combinedMessages && combinedMessages.length > 0) && !isLoading && (
         <div className='flex-1 flex flex-col items-center justify-center gap-2'>
