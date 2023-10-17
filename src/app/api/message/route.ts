@@ -9,6 +9,8 @@ import { openai } from '@/lib/openai';
 import { pinecone } from '@/lib/pinecone';
 import { SendMessageValidator } from '@/lib/validators/SendMessageValidator';
 
+// export const runtime = 'edge';
+
 export const POST = async (req: NextRequest) => {
   const body = await req.json();
 
@@ -72,7 +74,7 @@ export const POST = async (req: NextRequest) => {
     content: msg.text
   }));
 
-  const response = await openai.chat.completions.create({
+  const response = await openai.createChatCompletion({
     model: 'gpt-3.5-turbo',
     temperature: 0,
     stream: true,
