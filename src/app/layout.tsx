@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Providers from '@/components/Providers';
 import { Toaster } from '@/components/ui/toaster';
 import { cn, constructMetadata } from '@/lib/utils';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 import './globals.css';
 import 'simplebar-react/dist/simplebar.min.css';
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       <Providers>
         <body
           className={cn(
@@ -26,9 +27,16 @@ export default function RootLayout({
             inter.className
           )}
         >
-          <Toaster />
-          <Navbar />
-          {children}
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='system'
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Toaster />
+            <Navbar />
+            {children}
+          </ThemeProvider>
         </body>
       </Providers>
     </html>

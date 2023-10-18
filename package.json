@@ -38,6 +38,7 @@
     "langchain": "^0.0.164",
     "lucide-react": "^0.284.0",
     "next": "13.5.4",
+    "next-themes": "^0.2.1",
     "openai-edge": "^1.2.2",
     "pdf-parse": "^1.1.1",
     "react": "^18",

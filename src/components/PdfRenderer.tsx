@@ -73,8 +73,8 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
   };
 
   return (
-    <div className='w-full bg-white rounded-lg shadow flex flex-col items-center'>
-      <div className='h-14 w-full border-b border-zinc-200 flex items-center justify-between px-2'>
+    <div className='w-full bg-white dark:bg-gray-900 rounded-lg shadow flex flex-col items-center'>
+      <div className='h-14 w-full border-b border-zinc-200 dark:border-gray-800 flex items-center justify-between px-2'>
         <div className='flex items-center gap-1.5'>
           <Button
             disabled={currPage <= 1}
@@ -101,7 +101,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
                 errors.page && 'focus-visible:ring-red-500'
               )}
             />
-            <p className='text-zinc-700 text-sm space-x-1'>
+            <p className='text-zinc-700 dark:text-gray-300 text-sm space-x-1'>
               <span>/</span>
               <span>{numPages ?? 'x'}</span>
             </p>

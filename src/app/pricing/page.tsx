@@ -75,10 +75,10 @@ const PricingPage = () => {
 
   return (
     <>
-      <MaxWidthWrapper className='mb-8 mt-24 text-center max-w-5xl'>
+      <MaxWidthWrapper className='my-20 text-center max-w-5xl'>
         <div className='mx-auto mb-10 sm:max-w-lg'>
           <h1 className='text-6xl font-bold sm:text-7xl'>Pricing</h1>
-          <p className='mt-5 text-gray-600 sm:text-lg'>
+          <p className='mt-5 text-gray-600 dark:text-gray-400 sm:text-lg'>
             Whether you&apos;re just trying out our service or need more,
             we&apos;ve got you covered.
           </p>
@@ -94,11 +94,15 @@ const PricingPage = () => {
               return (
                 <div
                   key={plan}
-                  className={cn('relative rounded-2xl bg-white shadow-lg', {
-                    'border-2 border-purple-600 shadow-purple-200':
-                      plan === 'Pro',
-                    'border border-gray-200': plan !== 'Pro'
-                  })}
+                  className={cn(
+                    'relative rounded-2xl bg-white dark:bg-gray-900 shadow-lg',
+                    {
+                      'border-2 border-purple-600 shadow-purple-200 dark:shadow-purple-950':
+                        plan === 'Pro',
+                      'border border-gray-200 dark:border-gray-800':
+                        plan !== 'Pro'
+                    }
+                  )}
                 >
                   {plan === 'Pro' && (
                     <div className='absolute -top-5 left-0 right-0 mx-auto w-32 rounded-full bg-gradient-to-r from-purple-400 to-primary px-3 py-2 text-sm font-medium text-white'>
@@ -110,20 +114,24 @@ const PricingPage = () => {
                     <h3 className='my-3 text-center font-display text-3xl font-bold'>
                       {plan}
                     </h3>
-                    <p className='text-gray-500'>{tagline}</p>
+                    <p className='text-gray-500 dark:text-gray-400'>
+                      {tagline}
+                    </p>
                     <p className='my-5 font-display text-6xl font-semibold'>
                       RM{price}
                     </p>
-                    <p className='text-gray-500'>per month</p>
+                    <p className='text-gray-500 dark:text-gray-400'>
+                      per month
+                    </p>
                   </div>
 
-                  <div className='flex h-20 items-center justify-center border-b border-t border-gray-200 bg-gray-50'>
-                    <div className='flex items-center space-x-1'>
+                  <div className='flex h-20 items-center justify-center border-b border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800'>
+                    <div className='flex items-center space-x-2'>
                       <p>{quota.toLocaleString()} PDFs/mo included</p>
 
                       <Tooltip delayDuration={300}>
                         <TooltipTrigger className='cursor-default ml-1.5'>
-                          <HelpCircle className='h-4 w-4 text-zinc-500' />
+                          <HelpCircle className='h-4 w-4 text-zinc-500 dark:text-gray-400' />
                         </TooltipTrigger>
                         <TooltipContent className='w-80 p-2'>
                           How many PDFs you can upload per month.
@@ -137,24 +145,27 @@ const PricingPage = () => {
                       <li key={text} className='flex space-x-5'>
                         <div className='flex-shrink-0'>
                           {negative && (
-                            <Minus className='h-6 w-6 text-gray-300' />
+                            <Minus className='h-6 w-6 text-gray-300 dark:text-gray-600' />
                           )}
                           {!negative && (
                             <Check className='h-6 w-6 text-primary' />
                           )}
                         </div>
                         {footnote && (
-                          <div className='flex items-center space-x-1'>
+                          <div className='flex items-center space-x-2'>
                             <p
-                              className={cn('text-gray-600', {
-                                'text-gray-400': negative
-                              })}
+                              className={cn(
+                                'text-gray-600 dark:text-gray-300',
+                                {
+                                  'text-gray-400 dark:text-gray-600': negative
+                                }
+                              )}
                             >
                               {text}
                             </p>
                             <Tooltip delayDuration={300}>
                               <TooltipTrigger className='cursor-default ml-1.5'>
-                                <HelpCircle className='h-4 w-4 text-zinc-500' />
+                                <HelpCircle className='h-4 w-4 text-zinc-500 dark:text-gray-400' />
                               </TooltipTrigger>
                               <TooltipContent className='w-80 p-2'>
                                 {footnote}
@@ -164,8 +175,8 @@ const PricingPage = () => {
                         )}
                         {!footnote && (
                           <p
-                            className={cn('text-gray-600', {
-                              'text-gray-400': negative
+                            className={cn('text-gray-600 dark:text-gray-300', {
+                              'text-gray-400 dark:text-gray-600': negative
                             })}
                           >
                             {text}
@@ -174,7 +185,7 @@ const PricingPage = () => {
                       </li>
                     ))}
                   </ul>
-                  <div className='border-t border-gray-200' />
+                  <div className='border-t border-gray-200 dark:border-gray-800' />
                   <div className='p-5'>
                     {plan === 'Free' && (
                       <Link

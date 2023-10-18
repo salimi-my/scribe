@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import {
   RegisterLink,
@@ -7,19 +8,19 @@ import {
 } from '@kinde-oss/kinde-auth-nextjs/server';
 
 import MobileNav from '@/components/MobileNav';
+import { ModeToggle } from '@/components/ModeToggle';
 import { buttonVariants } from '@/components/ui/button';
 import UserAccountNav from '@/components/UserAccountNav';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
-import Image from 'next/image';
 
 const Navbar = () => {
   const { getUser } = getKindeServerSession();
   const user = getUser();
 
   return (
-    <nav className='sticky h-14 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all'>
+    <nav className='sticky h-14 inset-x-0 top-0 z-30 w-full border-b border-gray-200 dark:border-gray-800 bg-white/75 dark:bg-gray-900 backdrop-blur-lg transition-all'>
       <MaxWidthWrapper>
-        <div className='flex h-14 items-center justify-between border-b border-zinc-200'>
+        <div className='flex h-14 items-center justify-between border-b border-gray-200 dark:border-gray-800'>
           <Link href='/' className='flex items-center z-40 font-semibold'>
             <Image
               src='/scribe-logo.png'
@@ -45,7 +46,7 @@ const Navbar = () => {
                 >
                   Dashboard
                 </Link>
-
+                <ModeToggle />
                 <UserAccountNav
                   name={
                     !user.given_name || !user.family_name
@@ -76,6 +77,7 @@ const Navbar = () => {
                 >
                   Sign in
                 </LoginLink>
+                <ModeToggle />
                 <RegisterLink
                   className={buttonVariants({
                     size: 'sm'

@@ -31,7 +31,7 @@ const UserAccountNav = async ({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild className='overflow-visible'>
-        <Button className='rounded-full h-8 w-8 aspect-square bg-slate-400'>
+        <Button className='rounded-full h-8 w-8' variant='outline'>
           <Avatar className='relative w-8 h-8'>
             {imageUrl && (
               <div className='relative aspect-square h-full w-full'>
@@ -46,19 +46,23 @@ const UserAccountNav = async ({
             {!imageUrl && (
               <AvatarFallback>
                 <span className='sr-only'>{name}</span>
-                <Icons.user className='h-4 w-4 text-zinc-900' />
+                <Icons.user className='h-4 w-4 text-zinc-900 dark:text-white' />
               </AvatarFallback>
             )}
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className='bg-white' align='end'>
+      <DropdownMenuContent className='bg-white dark:bg-gray-900' align='end'>
         <div className='flex items-center justify-start gap-2 p-2'>
           <div className='flex flex-col space-y-0.5 leading-none'>
-            {name && <p className='font-medium text-sm text-black'>{name}</p>}
+            {name && (
+              <p className='font-medium text-sm text-black dark:text-white'>
+                {name}
+              </p>
+            )}
             {email && (
-              <p className='w-[200px] truncate text-xs text-zinc-700'>
+              <p className='w-[200px] truncate text-xs text-zinc-700 dark:text-gray-400'>
                 {email}
               </p>
             )}
