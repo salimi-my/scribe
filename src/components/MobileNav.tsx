@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { ArrowRight, Menu } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
+import { ModeToggle } from './ModeToggle';
 
 const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
   const [isOpen, setOpen] = useState<boolean>(false);
@@ -29,16 +30,22 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
 
   return (
     <div className='sm:hidden'>
-      <Button onClick={toggleOpen} variant='ghost' size='icon'>
-        <Menu className='relative z-50 h-5 w-5 text-zinc-700' />
+      <ModeToggle />
+      <Button
+        onClick={toggleOpen}
+        className='w-8 h-8'
+        variant='outline'
+        size='icon'
+      >
+        <Menu className='relative z-50 h-[1.2rem] w-[1.2rem]' />
       </Button>
 
       {isOpen && (
         <div className='fixed animate-in slide-in-from-top-5 fade-in-20 inset-0 z-0 w-full'>
-          <ul className='absolute bg-white border-b border-zinc-200 shadow-xl grid w-full gap-1 px-10 pt-20 pb-8'>
+          <ul className='absolute bg-white dark:bg-gray-900 border-b border-zinc-200 dark:border-gray-800 shadow-xl grid w-full gap-1 px-10 pt-20 pb-8'>
             {!isAuth ? (
               <>
-                <li className='py-1 px-2 rounded-md hover:bg-gray-100'>
+                <li className='py-1 px-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800'>
                   <Link
                     onClick={() => closeOnCurrent('/sign-up')}
                     className='flex items-center w-full font-semibold text-primary'
@@ -48,8 +55,8 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
                     <ArrowRight className='ml-2 h-4 w-4' />
                   </Link>
                 </li>
-                <li className='my-1 h-px w-full bg-gray-300' />
-                <li className='py-1 px-2 rounded-md hover:bg-gray-100'>
+                <li className='my-1 h-px w-full bg-gray-200 dark:bg-gray-700' />
+                <li className='py-1 px-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800'>
                   <Link
                     onClick={() => closeOnCurrent('/sign-in')}
                     className='flex items-center w-full font-semibold'
@@ -58,7 +65,7 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
                     Sign in
                   </Link>
                 </li>
-                <li className='my-1 h-px w-full bg-gray-300' />
+                <li className='my-1 h-px w-full bg-gray-200 dark:bg-gray-700' />
                 <li className='py-1 px-2 rounded-md hover:bg-gray-100'>
                   <Link
                     onClick={() => closeOnCurrent('/pricing')}
@@ -71,7 +78,7 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
               </>
             ) : (
               <>
-                <li className='py-1 px-2 rounded-md hover:bg-gray-100'>
+                <li className='py-1 px-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800'>
                   <Link
                     onClick={() => closeOnCurrent('/dashboard')}
                     className='flex items-center w-full font-semibold'
@@ -80,8 +87,8 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
                     Dashboard
                   </Link>
                 </li>
-                <li className='my-1 h-px w-full bg-gray-300' />
-                <li className='py-1 px-2 rounded-md hover:bg-gray-100'>
+                <li className='my-1 h-px w-full bg-gray-200 dark:bg-gray-700' />
+                <li className='py-1 px-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800'>
                   <Link
                     className='flex items-center w-full font-semibold'
                     href='/sign-out'
