@@ -9,7 +9,8 @@ import { openai } from '@/lib/openai';
 import { pinecone } from '@/lib/pinecone';
 import { SendMessageValidator } from '@/lib/validators/SendMessageValidator';
 
-export const runtime = 'edge';
+export const runtime =
+  process.env.NODE_ENV === 'production' ? 'edge' : 'nodejs';
 
 export const POST = async (req: NextRequest) => {
   const body = await req.json();
