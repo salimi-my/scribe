@@ -3,6 +3,7 @@
 import { format } from 'date-fns';
 import { Loader2 } from 'lucide-react';
 
+import Footer from '@/components/Footer';
 import { trpc } from '@/app/_trpc/client';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
@@ -38,47 +39,50 @@ const BillingForm = ({ subscriptionPlan }: BillingFormProps) => {
     });
 
   return (
-    <MaxWidthWrapper className='max-w-5xl'>
-      <form
-        className='mt-12'
-        onSubmit={(e) => {
-          e.preventDefault();
-          createStripeSession();
-        }}
-      >
-        <Card>
-          <CardHeader>
-            <CardTitle>Subscription Plan</CardTitle>
-            <CardDescription>
-              You are currently on the <strong>{subscriptionPlan.name}</strong>{' '}
-              plan.
-            </CardDescription>
-          </CardHeader>
+    <>
+      <MaxWidthWrapper className='max-w-5xl min-h-[calc(100vh_-_10.1rem)]'>
+        <form
+          className='mt-12'
+          onSubmit={(e) => {
+            e.preventDefault();
+            createStripeSession();
+          }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>Subscription Plan</CardTitle>
+              <CardDescription>
+                You are currently on the{' '}
+                <strong>{subscriptionPlan.name}</strong> plan.
+              </CardDescription>
+            </CardHeader>
 
-          <CardFooter className='flex flex-col items-start space-y-2 md:flex-row md:justify-between md:space-x-0'>
-            <Button type='submit'>
-              {isLoading && <Loader2 className='mr-4 h-4 w-4 animate-spin' />}
-              {subscriptionPlan.isSubscribed
-                ? 'Manage Subscription'
-                : 'Upgrade to PRO'}
-            </Button>
+            <CardFooter className='flex flex-col items-start space-y-2 md:flex-row md:justify-between md:space-x-0'>
+              <Button type='submit'>
+                {isLoading && <Loader2 className='mr-4 h-4 w-4 animate-spin' />}
+                {subscriptionPlan.isSubscribed
+                  ? 'Manage Subscription'
+                  : 'Upgrade to PRO'}
+              </Button>
 
-            {subscriptionPlan.isSubscribed && (
-              <p className='rounded-full text-xs font-medium'>
-                {subscriptionPlan.isCanceled
-                  ? 'Your plan will be canceled on '
-                  : 'Your plan renews on '}
-                {format(
-                  subscriptionPlan.stripeCurrentPeriodEnd!,
-                  'dd MMM yyyy'
-                )}
-                .
-              </p>
-            )}
-          </CardFooter>
-        </Card>
-      </form>
-    </MaxWidthWrapper>
+              {subscriptionPlan.isSubscribed && (
+                <p className='rounded-full text-xs font-medium'>
+                  {subscriptionPlan.isCanceled
+                    ? 'Your plan will be canceled on '
+                    : 'Your plan renews on '}
+                  {format(
+                    subscriptionPlan.stripeCurrentPeriodEnd!,
+                    'dd MMM yyyy'
+                  )}
+                  .
+                </p>
+              )}
+            </CardFooter>
+          </Card>
+        </form>
+      </MaxWidthWrapper>
+      <Footer />
+    </>
   );
 };
 

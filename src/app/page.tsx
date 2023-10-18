@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
+import Footer from '@/components/Footer';
 import { buttonVariants } from '@/components/ui/button';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 
@@ -155,6 +156,8 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 };

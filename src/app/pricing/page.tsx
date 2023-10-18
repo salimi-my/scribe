@@ -13,6 +13,7 @@ import {
   TooltipProvider,
   TooltipTrigger
 } from '@/components/ui/tooltip';
+import Footer from '@/components/Footer';
 
 const PricingPage = () => {
   const { getUser } = getKindeServerSession();
@@ -75,7 +76,7 @@ const PricingPage = () => {
 
   return (
     <>
-      <MaxWidthWrapper className='my-20 text-center max-w-5xl'>
+      <MaxWidthWrapper className='py-20 text-center max-w-5xl min-h-[calc(100vh_-_7.5rem)]'>
         <div className='mx-auto mb-10 sm:max-w-lg'>
           <h1 className='text-6xl font-bold sm:text-7xl'>Pricing</h1>
           <p className='mt-5 text-gray-600 dark:text-gray-400 sm:text-lg'>
@@ -218,6 +219,7 @@ const PricingPage = () => {
           </TooltipProvider>
         </div>
       </MaxWidthWrapper>
+      <Footer />
     </>
   );
 };
