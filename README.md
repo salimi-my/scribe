@@ -4,6 +4,7 @@ Scribe offers you the remarkable ability to engage in insightful conversations w
 
 ## Chat with your documents
 
+- Light & dark mode
 - Drag & drop file upload
 - Chat with PDF using AI
 - Authentication using Kinde
@@ -20,6 +21,8 @@ Scribe offers you the remarkable ability to engage in insightful conversations w
 - UploadThing
 - TypeScript
 - MongoDB
+- OpenAI
+- Pinecone
 - Prisma
 - Stripe
 - Vercel
