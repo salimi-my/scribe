@@ -83,6 +83,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
               setValue('page', String(currPage - 1));
             }}
             variant='ghost'
+            size='icon'
             aria-label='previous page'
           >
             <ChevronDown className='h-4 w-4' />
@@ -116,16 +117,21 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
               setValue('page', String(currPage + 1));
             }}
             variant='ghost'
+            size='icon'
             aria-label='next page'
           >
             <ChevronUp className='h-4 w-4' />
           </Button>
         </div>
 
-        <div className='space-x-2'>
+        <div className='space-x-1 md:space-x-2'>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button className='gap-1.5' aria-label='zoom' variant='ghost'>
+              <Button
+                className='gap-1.5 px-1 md:px-4'
+                aria-label='zoom'
+                variant='ghost'
+              >
                 <ZoomIn className='h-4 w-4' />
                 {scale * 100}%
                 <ChevronDown className='h-3 w-3 opacity-50' />
@@ -150,6 +156,7 @@ const PdfRenderer = ({ url }: PdfRendererProps) => {
           <Button
             onClick={() => setRotation((prev) => prev + 90)}
             variant='ghost'
+            size='icon'
             aria-label='rotate 90 degrees'
           >
             <RotateCw className='h-4 w-4' />
